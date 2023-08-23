@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 
 @Component({
@@ -7,11 +7,13 @@ import { Component, inject } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'movie-app';
+  title = 'Movie Check';
   http = inject(HttpClient);
 
   ngOnInit() {
-    this.http.get('https://api.themoviedb.org/3/discover/movie')
+    const apiKey = '936ddc953bd14900e5c528a00d324cc7';
+    const params = new HttpParams().set('api_key', apiKey);
+    this.http.get('https://api.themoviedb.org/3/discover/movie', { params })
     .subscribe((data:any) => {
       console.log(data);
     })
