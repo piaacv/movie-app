@@ -1,5 +1,7 @@
 <img src="assets/homeLogo.png" routerLink="/welcome">
 <input type="search" placeholder="Search by filter">
 <h2>Result</h2>
-
+<div *ngFor="let movie of movies">
+    {{ movie.title}}
+  </div>
 <h2>Recommendations</h2>
