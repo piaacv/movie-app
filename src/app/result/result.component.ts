@@ -1,5 +1,5 @@
-import { Component, inject } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { Component } from '@angular/core';
+import { TmdbService } from '../tmdb.service';
 
 @Component({
   selector: 'app-result',
@@ -7,16 +7,40 @@ import { HttpClient, HttpParams } from '@angular/common/http';
   styleUrls: ['./result.component.css']
 })
 export class ResultComponent {
-  http = inject(HttpClient);
   movies: any[] = [];
+  genresMap: { [id: number]: string } = {};
+  popular: any[] = [];
+
+  constructor(private tmdbservice: TmdbService) {}
 
   ngOnInit() {
-    const apiKey = '936ddc953bd14900e5c528a00d324cc7';
-    const params = new HttpParams().set('api_key', apiKey);
-    this.http.get('https://api.themoviedb.org/3/discover/movie', { params })
-    .subscribe((data:any) => {
-      console.log(data);
-      this.movies = data.results
-    })
+    this.tmdbservice.getMovies()
+      .subscribe((data: any) => {
+        console.log(data);
+        this.movies = data.results;
+      });
+
+      this.tmdbservice.getGenres()
+      .subscribe((data: any) => {
+        data.genres.forEach((genre: any) => {
+          this.genresMap[genre.id] = genre.name;
+        })
+        });
+
+         this.tmdbservice.getPopular()
+         .subscribe((data: any) => {
+           console.log(data);
+           this.popular = data.results;
+         });
+  }
+
+  getMovieGenres(genreIds: number[]): string {
+    const genres = genreIds.map(id => this.genresMap[id]);
+    return genres.join(', ');
+  }
+
+  getMoviePosterUrl(posterPath: string): string {
+    const baseUrl = 'https://image.tmdb.org/t/p/w500'; // TMDb base image URL
+    return `${baseUrl}${posterPath}`;
   }
 }
