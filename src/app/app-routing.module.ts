@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { MovieComponent } from './movie/movie.component';
 import { ResultComponent } from './result/result.component';
+import { UpcomingComponent } from './upcoming/upcoming.component';
+import { LatestComponent } from './latest/latest.component';
 
 const routes: Routes = [
   {
@@ -16,6 +18,14 @@ const routes: Routes = [
   {
     path:'result',
     component: ResultComponent
+  },
+  {
+    path:'upcoming',
+    component: UpcomingComponent
+  },
+  {
+    path:'latest',
+    component: LatestComponent
   },
   {
     path: '',

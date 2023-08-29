@@ -1,7 +1,14 @@
-<img src="assets/homeLogo.png" routerLink="/welcome">
+<img src="assets/homeLogo.png" routerLink="/movie">
 <input type="search" placeholder="Search by filter">
 <h2>Result</h2>
-<div *ngFor="let movie of movies">
-    {{ movie.title}}
+<div *ngFor="let movie of movies.slice(0,1)">
+    <p>Title: {{ movie.title}}</p>
+    <p>Genres: {{ getMovieGenres(movie.genre_ids) }}</p>
+    <p>Overview: {{movie.overview}}</p>
+    
   </div>
-<h2>Recommendations</h2>
+  <h2>Popular</h2>
+  <div *ngFor="let popular of popular.slice(0,3)">
+    <p>{{popular.title}}</p>
+    <img [src]="getMoviePosterUrl(popular.poster_path)" alt="Movie Poster">
+  </div>

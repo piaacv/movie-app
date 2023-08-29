@@ -1,7 +1,12 @@
 <img src="assets/homeLogo.png" routerLink="/welcome">
-<h2>Let's search</h2>
-<h2>Search by</h2>
-<button routerLink="/result">Title</button>
-<button routerLink="/result">Release</button>
-<button routerLink="/result">Review</button>
-<button routerLink="/result">Filter 4</button>
+<h2>Let's search by title</h2>
+<input type="search" placeholder="Title">
+<h2>Or search by</h2>
+<button routerLink="/result">Top Rated</button>
+<button routerLink="/latest">Latest</button>
+<button routerLink="/upcoming">Upcoming</button>
+<h2>Now playing</h2>
+<div *ngFor="let nowplaying of nowPlaying.slice(0,3)">
+<p>{{nowplaying.title}}</p>
+<img [src]="getMoviePosterUrl(nowplaying.poster_path)" alt="Movie Poster">
+</div>
