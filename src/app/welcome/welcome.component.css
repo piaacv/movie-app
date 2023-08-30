@@ -1,0 +1,28 @@
+@font-face {
+    font-family: 'Holtwood One SC';
+    src: url('/assets/HoltwoodOneSC-Regular.ttf');
+  }
+
+
+.welcome-logo{
+ display: flexbox;
+ align-items: center;
+ text-align: center;
+ margin-top: 100px;
+ margin-bottom: 30px;
+ }
+
+.welcome-button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button{
+    font-family: 'Holtwood One SC';
+    background-color: white;
+    border-radius: 20px;
+    width: 200px;
+    border-style: none;
+    height: 40px;
+}

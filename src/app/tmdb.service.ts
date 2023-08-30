@@ -35,9 +35,9 @@ export class TmdbService {
     return this.http.get('https://api.themoviedb.org/3/movie/popular', { params });
    }
 
-   getLatest():Observable<any> {
+   getTopRated():Observable<any> {
     const params = new HttpParams().set('api_key', this.apiKey);
-    return this.http.get('https://api.themoviedb.org/3/movie/latest', { params });
+    return this.http.get('https://api.themoviedb.org/3/movie/top_rated', { params });
    }
 }
 

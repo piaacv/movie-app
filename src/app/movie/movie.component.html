@@ -1,12 +1,41 @@
-<img src="assets/homeLogo.png" routerLink="/welcome">
-<h2>Let's search by title</h2>
-<input type="search" placeholder="Title">
-<h2>Or search by</h2>
-<button routerLink="/result">Top Rated</button>
-<button routerLink="/latest">Latest</button>
+<div class="movie">
+    <img src="assets/homeLogo.png" routerLink="/welcome">
+    <img src="assets/movie-logo.png" width="250px">
+    </div>
+<div class="search-section">
+<h2>LET'S SEARCH</h2>
+<div class="search-bar">
+    <input type="search" placeholder="title movie" #searchinput
+    (input)="searchText = searchinput.value;filtermovies()">
+</div>
+</div>
+
+<h2>or search by</h2>
+<div class="filters-buttons">
+<button routerLink="/toprated">Top Rated</button>
 <button routerLink="/upcoming">Upcoming</button>
-<h2>Now playing</h2>
-<div *ngFor="let nowplaying of nowPlaying.slice(0,3)">
-<p>{{nowplaying.title}}</p>
-<img [src]="getMoviePosterUrl(nowplaying.poster_path)" alt="Movie Poster">
+</div>
+
+<h2 class="details-search" *ngIf="searchText.length>0">SEARCH RESULT:</h2>
+<div class="result-wrong" *ngIf="movies.length === 0">
+    <p>title not found, search another one please</p>
+  </div>
+
+  
+<div class="result" *ngIf="searchText.length>0">
+    <div *ngFor="let movie of movies.slice(0,4)">
+        <img [src]="getMoviePosterUrl(movie.poster_path)" routerLink="/result">
+        
+      </div>
+</div>
+
+  
+
+<h2>now playing</h2>
+
+<div class="cards">
+<div *ngFor="let nowplaying of nowPlaying.slice(0,4)">
+<!-- <p>{{nowplaying.title}}</p> -->
+<img [src]="getMoviePosterUrl(nowplaying.poster_path)" routerLink="/result">
+</div>
 </div>

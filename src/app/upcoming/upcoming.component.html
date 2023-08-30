@@ -1,10 +1,14 @@
-<img src="assets/homeLogo.png" routerLink="/movie">
-<h2>Check the upcoming movies</h2>
+<div class="movie">
+    <img src="assets/homeLogo.png" routerLink="/movie">
+    <img src="assets/movie-logo.png" width="250px">
+    </div>
+<div class="filter-top">
+<h2> Upcoming </h2>
+</div>
+<h2>Results: only appears when user selected a movie</h2>
+<div class="cards">
 <div *ngFor="let upcomings of upcoming.slice(0,6)">
-    <p>Title: {{upcomings.title}} </p>
-    <p>Release Date: {{upcomings.release_date}}</p>
-    <!-- ordenar por fecha, fechas nuevas primero -->
-    
     <img [src]="getMoviePosterUrl(upcomings.poster_path)" alt="Movie Poster">
 
 </div>
+

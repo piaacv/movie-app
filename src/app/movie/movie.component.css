@@ -1,0 +1,88 @@
+@font-face {
+    font-family: 'Holtwood One SC';
+    src: url('/assets/HoltwoodOneSC-Regular.ttf');
+  }
+.movie{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+  h2{
+    font-size: 20px;
+    text-align: center;
+  }
+.search-bar{
+    display: flex;
+    justify-content: center;
+}
+
+.result-wrong{
+  font-size: 10px;
+  text-align: center;
+  color: red;
+}
+
+.search-bar input{
+    border-radius: 20px;
+    width: 300px;
+    height: 30px;
+    border-color: white;
+    background-color: white;
+    border-style: none;
+    padding-left: 10px;
+    font-family: 'Holtwood One SC';
+    font-size: 10px;
+    text-align:center;
+  }
+ .result{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 30px;
+  gap:20px;
+}
+
+.details-search {
+ display: flex;
+ flex-direction: column;
+}
+
+.result img{
+  width: 150px;
+  border-radius: 20px;
+   border-style: solid;
+    border-color: white;
+    border-width: 5px;
+}
+  .filters-buttons{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+  }
+
+  button{
+    font-family: 'Holtwood One SC';
+    background-color: white;
+    border-radius: 20px;
+    border-style: none;
+    width: 150px;
+    margin-right: 20px;
+    height: 30px;
+  }
+
+  .cards{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap:20px;
+  }
+
+  .cards img{
+    width: 150px;
+    border-radius: 20px;
+    border-style: solid;
+    border-color: white;
+    border-width: 5px;
+  }

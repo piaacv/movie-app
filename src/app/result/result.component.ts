@@ -10,6 +10,7 @@ export class ResultComponent {
   movies: any[] = [];
   genresMap: { [id: number]: string } = {};
   popular: any[] = [];
+  searchText: string = '';
 
   constructor(private tmdbservice: TmdbService) {}
 
@@ -43,4 +44,21 @@ export class ResultComponent {
     const baseUrl = 'https://image.tmdb.org/t/p/w500'; // TMDb base image URL
     return `${baseUrl}${posterPath}`;
   }
+
+  filtermovies(){
+    if(!this.searchText){
+      this.movies = [];
+      console.log(this.movies.length)
+      return;
+    }else{
+      this.tmdbservice.getMovies()
+      .subscribe((data: any) => {
+        console.log(data);
+        this.movies = data.results;
+        let titlefilter = this.movies.filter(movie=>
+          movie.title.toLowerCase().includes(this.searchText.toLowerCase()))
+          this.movies = titlefilter
+      })
+  }
+}
 }

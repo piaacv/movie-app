@@ -10,6 +10,7 @@ export class UpcomingComponent {
   upcoming: any[] = [];
 
   constructor(private tmdbservice: TmdbService) {}
+  
   ngOnInit(){
     this.tmdbservice.getUpcoming()
          .subscribe((data: any)=>{
