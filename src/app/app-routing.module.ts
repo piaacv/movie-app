@@ -4,7 +4,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { MovieComponent } from './movie/movie.component';
 import { ResultComponent } from './result/result.component';
 import { UpcomingComponent } from './upcoming/upcoming.component';
-import { LatestComponent } from './latest/latest.component';
+import { TopRatedComponent } from './top-rated/top-rated.component';
 
 const routes: Routes = [
   {
@@ -24,8 +24,8 @@ const routes: Routes = [
     component: UpcomingComponent
   },
   {
-    path:'latest',
-    component: LatestComponent
+    path:'toprated',
+    component: TopRatedComponent
   },
   {
     path: '',

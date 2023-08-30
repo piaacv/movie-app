@@ -1,0 +1,17 @@
+<div class="movie">
+    <img src="assets/homeLogo.png" routerLink="/movie">
+    <img src="assets/movie-logo.png" width="250px">
+    </div>
+
+<div class="filter-top">
+<h2> Top Rated </h2>
+</div>
+
+<div class="cards">
+<div *ngFor="let toprated of topRated.slice(0,6)">
+    <!-- <h3>Title: {{toprated.title}}</h3> -->
+    <img [src]="getMoviePosterUrl(toprated.poster_path)" alt="Movie Poster">
+</div>
+</div>
+
+<h2>Results: only appears when user selected a movie</h2>

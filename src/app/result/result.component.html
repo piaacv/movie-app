@@ -1,5 +1,7 @@
 <img src="assets/homeLogo.png" routerLink="/movie">
-<input type="search" placeholder="Search by filter">
+<input type="search" placeholder="Search by filter" #searchinput
+(input)="searchText = searchinput.value;filtermovies()">
+<div *ngIf="searchText.length>0">
 <h2>Result</h2>
 <div *ngFor="let movie of movies.slice(0,1)">
     <p>Title: {{ movie.title}}</p>
@@ -7,8 +9,11 @@
     <p>Overview: {{movie.overview}}</p>
     
   </div>
+</div>
+<div *ngIf="movies.length>0">
   <h2>Popular</h2>
   <div *ngFor="let popular of popular.slice(0,3)">
     <p>{{popular.title}}</p>
     <img [src]="getMoviePosterUrl(popular.poster_path)" alt="Movie Poster">
   </div>
+</div>

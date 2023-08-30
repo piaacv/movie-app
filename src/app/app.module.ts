@@ -8,7 +8,7 @@ import { MovieComponent } from './movie/movie.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { ResultComponent } from './result/result.component';
 import { UpcomingComponent } from './upcoming/upcoming.component';
-import { LatestComponent } from './latest/latest.component';
+import { TopRatedComponent } from './top-rated/top-rated.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +17,7 @@ import { LatestComponent } from './latest/latest.component';
     WelcomeComponent,
     ResultComponent,
     UpcomingComponent,
-    LatestComponent
+    TopRatedComponent
   ],
   imports: [
     BrowserModule,
