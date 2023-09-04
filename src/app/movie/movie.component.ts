@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { TmdbService } from '../tmdb.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-movie',
@@ -10,8 +11,8 @@ export class MovieComponent {
   movies: any[] = [];
   nowPlaying: any[] = [];
   searchText: string = '';
-
-  constructor(private tmdbService: TmdbService) {}
+  errorMessage: string ='';
+  constructor(private tmdbService: TmdbService, private router: Router) {}
 
   ngOnInit() {
     this.tmdbService.getMovies()
@@ -46,11 +47,16 @@ export class MovieComponent {
       );
     if (titleFilter.length === 0) {
       console.log('No se encontraron resultados.');
+      this.errorMessage = 'No results found'
+      } else{
+        this.errorMessage = '';
       }
     this.movies = titleFilter;
     });
   }
 }
 
-
+onImageClick(movie: any) {
+  this.router.navigate(['/result'], { queryParams: movie});
+}
 }

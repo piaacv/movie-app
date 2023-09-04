@@ -2,3 +2,64 @@
     font-family: 'Holtwood One SC';
     src: url('/assets/HoltwoodOneSC-Regular.ttf');
   }
+
+  .movie{
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+  }
+
+  .home-logo{
+    height: 50px;
+  }
+
+  .nav-button{
+    text-align: center;
+    margin-bottom: 20px;
+    
+  }
+
+  .nav-button button {
+    background-color: white;
+    margin-right: 20px;
+    border-style: none;
+    border-radius: 20px;
+    font-family: 'Holtwood One SC' ;
+  }
+
+  .detail-movie{
+    text-align: center;
+    background-color: white;
+    border-radius: 20px;
+    width:300px;
+    padding: 0px 10px 0px 10px;
+    
+  }
+
+  .detail-movie h2{
+font-size: 18px;
+  }
+.detail-movie h3{
+  font-size: 15px;
+}
+  .detail-movie p{
+    font-size: 12px;
+    text-align:center;
+  }
+
+  .result{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+
+  .result img{
+    width: 200px;
+    border-radius: 20px;
+    border-style: solid;
+    border-color: white;
+    border-width: 5px;
+  }

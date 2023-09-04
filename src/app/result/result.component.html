@@ -1,16 +1,35 @@
-<img src="assets/homeLogo.png" routerLink="/movie">
-<input type="search" placeholder="Search by filter" #searchinput
-(input)="searchText = searchinput.value;filtermovies()">
-<div *ngIf="searchText.length>0">
-<h2>Result</h2>
-<div *ngFor="let movie of movies.slice(0,1)">
-    <p>Title: {{ movie.title}}</p>
-    <p>Genres: {{ getMovieGenres(movie.genre_ids) }}</p>
-    <p>Overview: {{movie.overview}}</p>
-    
+<img src="assets/homeLogo.png" routerLink="/welcome">
+<div class="movie">
+    <img src="assets/movie-logo.png" width="250px">
+    </div>
+ 
+<div class=" result" *ngIf="movieDetails">
+  <div class="poster-movie">
+    <img [src]="getMoviePosterUrl(movieDetails.poster_path)">
+  </div>
+  <div class="nav-button">
+    <button (click)="goback()">Back</button>
+    <button routerLink="/movie">Search</button>
+    </div>
+  <div class="detail-movie">
+    <h2>{{ movieDetails.title }}</h2>
+    <h3>Overview:</h3>
+    <p>{{ movieDetails.overview }}</p>
+    <h3>Release date:</h3>
+    <p>{{ movieDetails.release_date }}</p>
+    <h3>Genres:</h3>
+    <p>{{ getMovieGenres(movieDetails.genre_ids) }}</p>
   </div>
 </div>
-<div *ngIf="movies.length>0">
+
+<div *ngIf="searchText.length>0">
+<h2>Result</h2>
+<div *ngFor="let movie of movies.slice(0,4)">
+  <img [src]="getMoviePosterUrl(movie.poster_path)" routerLink="/result">
+  
+</div>
+</div>
+<div *ngIf="movies.length<0">
   <h2>Popular</h2>
   <div *ngFor="let popular of popular.slice(0,3)">
     <p>{{popular.title}}</p>
