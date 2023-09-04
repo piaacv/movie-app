@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { TmdbService } from '../tmdb.service';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-result',
@@ -11,10 +13,20 @@ export class ResultComponent {
   genresMap: { [id: number]: string } = {};
   popular: any[] = [];
   searchText: string = '';
+  movieDetails: any;
 
-  constructor(private tmdbservice: TmdbService) {}
+  constructor(private tmdbservice: TmdbService,
+     private route: ActivatedRoute,
+     private location: Location) {}
 
   ngOnInit() {
+    this.route.queryParams.subscribe(params => {
+      this.movieDetails = params;
+      console.log('Título:', this.movieDetails.title);
+      console.log('Descripción:', this.movieDetails.overview);
+      console.log('Fecha de Lanzamiento:', this.movieDetails.release_date);
+    });
+    
     this.tmdbservice.getMovies()
       .subscribe((data: any) => {
         console.log(data);
@@ -60,5 +72,9 @@ export class ResultComponent {
           this.movies = titlefilter
       })
   }
+}
+
+goback() {
+  this.location.back();
 }
 }

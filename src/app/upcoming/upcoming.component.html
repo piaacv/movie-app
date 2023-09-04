@@ -1,14 +1,13 @@
+<img src="assets/homeLogo.png" routerLink="/movie">
 <div class="movie">
-    <img src="assets/homeLogo.png" routerLink="/movie">
     <img src="assets/movie-logo.png" width="250px">
     </div>
 <div class="filter-top">
 <h2> Upcoming </h2>
 </div>
-<h2>Results: only appears when user selected a movie</h2>
 <div class="cards">
 <div *ngFor="let upcomings of upcoming.slice(0,6)">
-    <img [src]="getMoviePosterUrl(upcomings.poster_path)" alt="Movie Poster">
+    <img [src]="getMoviePosterUrl(upcomings.poster_path)" (click)="onImageClick(upcomings)">
 
 </div>
 
