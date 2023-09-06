@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClientModule } from '@angular/common/http';
 import { TopRatedComponent } from './top-rated.component';
 
 describe('TopRatedComponent', () => {
@@ -8,7 +8,8 @@ describe('TopRatedComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [TopRatedComponent]
+      declarations: [TopRatedComponent],
+      imports: [HttpClientModule],
     });
     fixture = TestBed.createComponent(TopRatedComponent);
     component = fixture.componentInstance;

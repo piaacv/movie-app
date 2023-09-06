@@ -2,7 +2,8 @@
 <div class="movie">
     <img src="assets/movie-logo.png" width="250px">
     </div>
-<div class="search-section">
+  <div class="search-container">
+    <div class="search-section">
     <h2>LET'S SEARCH</h2>
     <div class="search-bar">
     <input type="search" placeholder="title movie" #searchinput
@@ -13,7 +14,7 @@
        <button routerLink="/toprated">Top Rated</button>
        <button routerLink="/upcoming">Upcoming</button>
        </div>
-
+      </div>
 </div>
 
 <h2 class="details-search" *ngIf="searchText.length>0">SEARCH RESULT:</h2>
