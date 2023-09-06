@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClientModule } from '@angular/common/http';
 import { MovieComponent } from './movie.component';
 
 describe('MovieComponent', () => {
@@ -8,7 +8,8 @@ describe('MovieComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [MovieComponent]
+      declarations: [MovieComponent],
+      imports: [HttpClientModule],
     });
     fixture = TestBed.createComponent(MovieComponent);
     component = fixture.componentInstance;

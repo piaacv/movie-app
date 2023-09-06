@@ -6,8 +6,12 @@
 <h2> Upcoming </h2>
 </div>
 <div class="cards">
-<div *ngFor="let upcomings of upcoming.slice(0,6)">
+   <div *ngFor="let upcomings of upcoming.slice(0,6)">
     <img [src]="getMoviePosterUrl(upcomings.poster_path)" (click)="onImageClick(upcomings)">
-
+   </div>
 </div>
+
+<div class="nav-button">
+    <button routerLink="/movie">Back to search</button>
+    </div>
 

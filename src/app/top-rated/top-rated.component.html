@@ -9,8 +9,11 @@
 
 <div class="cards">
 <div *ngFor="let toprated of topRated.slice(0,6)">
-    <!-- <h3>Title: {{toprated.title}}</h3> -->
     <img [src]="getMoviePosterUrl(toprated.poster_path)" (click)="onImageClick(toprated)">
 </div>
 </div>
+
+<div class="nav-button">
+    <button routerLink="/movie">Back to search</button>
+    </div>
 

@@ -13,6 +13,11 @@
     text-align: center;
   }
 
+.search-container{
+  display: flex;
+  justify-content: center;
+}
+
 .search-section{
   display: flex;
   flex-direction: column;
@@ -70,9 +75,10 @@
 }
   .filters-buttons{
     display: flex;
-    text-align: center;
     justify-content: center;
-    margin-bottom: 15px;
+    align-items: center;
+    gap: 20px;
+    padding: 0px 20px 0px 20px
   }
 
   button{
@@ -81,7 +87,6 @@
     border-radius: 20px;
     border-style: none;
     width: 150px;
-    margin-right: 20px;
     height: 30px;
   }
 
