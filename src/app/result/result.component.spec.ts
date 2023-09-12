@@ -1,7 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, convertToParamMap } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { ResultComponent } from './result.component';
+import { of } from 'rxjs';
 
 describe('ResultComponent', () => {
   let component: ResultComponent;
@@ -14,7 +15,12 @@ describe('ResultComponent', () => {
       providers: [
         {
           provide: ActivatedRoute,
-          useValue: {} // Puedes proporcionar un objeto vacío o personalizarlo según tus necesidades de prueba
+          useValue: {
+            queryParams: of({}), // Provide queryParams as an observable
+            snapshot: {
+              paramMap: convertToParamMap({}) // Provide paramMap as a snapshot
+            }
+          }
         }
       ]
     });
@@ -27,3 +33,5 @@ describe('ResultComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+
+

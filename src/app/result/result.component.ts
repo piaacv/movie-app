@@ -48,6 +48,9 @@ export class ResultComponent {
   }
 
   getMovieGenres(genreIds: number[]): string {
+    if(!genreIds || genreIds.length ===0){
+      return ""
+    }
     const genres = genreIds.map(id => this.genresMap[id]);
     return genres.join(', ');
   }
